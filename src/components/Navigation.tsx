@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Burger from "./Burger";
 import { useState } from "react";
-import getStaticProps from "../pages/posts/postNavigation";
 import { PostContent } from "../lib/posts";
 type Props = {
   posts:PostContent[]
