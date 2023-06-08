@@ -16,7 +16,7 @@ type Props = {
 export default function Index({ posts, tags, pagination }: Props) {
   const url = "/posts";
   const title = "All posts";
-  console.log("20",posts)
+  // console.log("20",posts)
   return (
     <Layout posts={posts}>
       <PostList posts={posts} tags={tags} pagination={pagination} />
