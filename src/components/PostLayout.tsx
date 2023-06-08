@@ -21,6 +21,7 @@ type Props = {
   author: string;
   description?: string;
   children: React.ReactNode;
+  posts:any
 };
 export default function PostLayout({
   title,
@@ -30,11 +31,12 @@ export default function PostLayout({
   tags,
   description = "",
   children,
+  posts
 }: Props) {
   const keywords = tags.map(it => getTag(it).name);
   const authorName = getAuthor(author).name;
   return (
-    <Layout>
+    <Layout posts={posts}>
       <BasicMeta
         url={`/posts/${slug}`}
         title={title}

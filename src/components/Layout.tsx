@@ -1,17 +1,22 @@
-import Head from "next/head";
+import { GetStaticProps,GetServerSideProps } from "next";
 import Navigation from "./Navigation";
+import { countPosts, listPostContent, PostContent } from "../lib/posts"
 type Props = {
   children: React.ReactNode;
+  posts:PostContent[]
 };
 
-export default function Layout({ children }: Props) {
+// import { getStaticPropsPosts } from "../pages/posts/postNavigation";
+export default function Layout({ children ,posts}: Props) {
+  const getValue = () => {};
+  // console.log(getStaticProps);
   return (
     <div className="root">
-      <header className="c-header">
+      <header className="c-header"> 
         <div className="c-header__content">
           <div className="c-header__dropdown-container">
             <a className="c-header__logo" href="/digital/" data-testid="logo">
-              <img className="c-header__logo-img" src="" />
+              <img className="c-header__logo-img" src="https://i.ibb.co/3NdPjkX/499a21f061efc2b7.png" />
             </a>
             <div className="c-header__links">
               <div className="c-header__links-container">
@@ -130,49 +135,45 @@ export default function Layout({ children }: Props) {
         </div>
       </header>
       <main className="c-main">
-      <div className="c-breadcrumbs-row" data-testid="breadcrumbs">
-        <div className="c-breadcrumbs-row__container">
-          <div className="c-breadcrumbs-row__content">
-            <div className="pcdl-c-breadcrumb-row">
-              <div  className="pcdl-c-breadcrumb">Foundation</div>
-              <div
-                className="pcdl-c-breadcrumb-separator"
-                data-testid="separator"
-              ></div>
-              <div
-               
-                className="pcdl-c-breadcrumb pcdl-c-breadcrumb--active"
-              >
-                Sound
+        <div className="c-breadcrumbs-row" data-testid="breadcrumbs">
+          <div className="c-breadcrumbs-row__container">
+            <div className="c-breadcrumbs-row__content">
+              <div className="pcdl-c-breadcrumb-row">
+                <div className="pcdl-c-breadcrumb">Foundation</div>
+                <div
+                  className="pcdl-c-breadcrumb-separator"
+                  data-testid="separator"
+                ></div>
+                <div className="pcdl-c-breadcrumb pcdl-c-breadcrumb--active">
+                  Sound
+                </div>
               </div>
             </div>
-          </div>
-          <div className="c-breadcrumbs-row__search">
-            <div className="c-search-bar" data-testid="search-bar">
-              <div className="c-search-bar__input-container">
-                <form aria-label="form">
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    // required="false"
-                    name="search"
-                    value=""
-                  />
-                </form>
+            <div className="c-breadcrumbs-row__search">
+              <div className="c-search-bar" data-testid="search-bar">
+                <div className="c-search-bar__input-container">
+                  <form aria-label="form">
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      // required="false"
+                      name="search"
+                      value=""
+                      onChange={() => getValue()}
+                    />
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="c-main__row c-main__row--with-sidebar">
-        <nav className="c-sidebar">
-          <Navigation />
-        </nav>
-        <article className="c-mdx">
-          {children}
-        </article>
-      </div>
-    </main>
+        <div className="c-main__row c-main__row--with-sidebar">
+          <nav className="c-sidebar">
+            <Navigation posts={posts} />
+          </nav>
+          <article className="c-mdx">{children}</article>
+        </div>
+      </main>
       <footer className="c-footer" data-testid="footer">
         <div className="c-footer__info">
           <div className="c-footer__shield">

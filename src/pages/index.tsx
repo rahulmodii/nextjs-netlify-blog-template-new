@@ -1,12 +1,20 @@
+import { type } from "os";
 import Layout from "../components/Layout";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import { SocialList } from "../components/SocialList";
+import { countPosts, listPostContent, PostContent } from "../lib/posts";
+import { listTags } from "../lib/tags";
+import { GetStaticProps } from "next";
 
-export default function Index() {
+type Props = {
+  posts: PostContent[];
+};
+
+export default function Index({ posts }: Props) {
   return (
-    <Layout>
+    <Layout posts={posts}>
       <BasicMeta url={"/"} />
       <OpenGraphMeta url={"/"} />
       <TwitterCardMeta url={"/"} />
@@ -60,3 +68,12 @@ export default function Index() {
     </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = listPostContent(1, 100);
+  return {
+    props: {
+      posts,
+    },
+  };
+};

@@ -2,9 +2,35 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Burger from "./Burger";
 import { useState } from "react";
-export default function Navigation() {
+import getStaticProps from "../pages/posts/postNavigation";
+import { PostContent } from "../lib/posts";
+type Props = {
+  posts:PostContent[]
+};
+export default function Navigation({posts}:Props ) {
   const router = useRouter();
   const [active, setActive] = useState(false);
+  // console.log(posts);
+
+  const postNavigation = () => {
+    if (posts === undefined) {
+      return;
+    }
+    console.log(posts);
+    return posts.map((u, i) => {
+      return (
+        <li className="c-sidebar__item" key={i} style={{ marginLeft: "7px" }}>
+          <div className="c-sidebar__item-label-wrap" data-testid="label-wrap">
+            <Link href={`/posts/${u.slug}`}>
+              <a target="_self" className="c-sidebar__item-label">
+                {u.slug}
+              </a>
+            </Link>
+          </div>
+        </li>
+      );
+    });
+  };
   return (
     <>
       <Burger active={active} onClick={() => setActive(!active)} />
@@ -16,14 +42,17 @@ export default function Navigation() {
               data-testid="label-wrap"
             >
               <Link href="/">
-                <a  target="_self"
-                    className="c-sidebar__item-label c-sidebar__item-label--first-level">
+                <a
+                  target="_self"
+                  className="c-sidebar__item-label c-sidebar__item-label--first-level"
+                >
                   About
                 </a>
               </Link>
             </div>
           </li>
-          <li className="c-sidebar__item">
+
+          <li className="c-sidebar__item-label c-sidebar__item-label--first-level">
             <div
               className="c-sidebar__item-label-wrap"
               data-testid="label-wrap"
@@ -33,11 +62,12 @@ export default function Navigation() {
                   target="_self"
                   className="c-sidebar__item-label c-sidebar__item-label--first-level"
                 >
-                  Blog
+                  Posts
                 </a>
               </Link>
             </div>
           </li>
+          {postNavigation()}
         </ul>
       </div>
     </>
