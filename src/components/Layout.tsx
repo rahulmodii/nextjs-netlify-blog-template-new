@@ -1,22 +1,22 @@
-import { GetStaticProps,GetServerSideProps } from "next";
 import Navigation from "./Navigation";
-import { countPosts, listPostContent, PostContent } from "../lib/posts"
+import { PostContent } from "../lib/posts";
 type Props = {
   children: React.ReactNode;
-  posts:PostContent[]
+  posts: PostContent[];
 };
 
-// import { getStaticPropsPosts } from "../pages/posts/postNavigation";
-export default function Layout({ children ,posts}: Props) {
+export default function Layout({ children, posts }: Props) {
   const getValue = () => {};
-  // console.log(getStaticProps);
   return (
     <div className="root">
-      <header className="c-header"> 
+      <header className="c-header">
         <div className="c-header__content">
           <div className="c-header__dropdown-container">
             <a className="c-header__logo" href="/digital/" data-testid="logo">
-              <img className="c-header__logo-img" src="https://i.ibb.co/3NdPjkX/499a21f061efc2b7.png" />
+              <img
+                className="c-header__logo-img"
+                src="https://i.ibb.co/3NdPjkX/499a21f061efc2b7.png"
+              />
             </a>
             <div className="c-header__links">
               <div className="c-header__links-container">
@@ -171,7 +171,7 @@ export default function Layout({ children ,posts}: Props) {
           <nav className="c-sidebar">
             <Navigation posts={posts} />
           </nav>
-          <article className="c-mdx">{children}</article>
+          <article className="c-mdx" >{children}</article>
         </div>
       </main>
       <footer className="c-footer" data-testid="footer">

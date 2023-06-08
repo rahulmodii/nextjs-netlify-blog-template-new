@@ -94,10 +94,9 @@ export default function PostLayout({
         {`
             .container {
               display: block;
-              max-width: 36rem;
               width: 100%;
               margin: 0 auto;
-              padding: 0 1.5rem;
+              padding: 80px 36px 80px 80px;
               box-sizing: border-box;
               z-index: 0;
             }
@@ -111,6 +110,7 @@ export default function PostLayout({
             h1 {
               margin: 0 0 0.5rem;
               font-size: 2.25rem;
+              color:#092f52
             }
             .tag-list {
               list-style: none;
