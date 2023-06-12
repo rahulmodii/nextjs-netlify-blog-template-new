@@ -12,7 +12,7 @@ export default function Layout({ children, posts }: Props) {
       <header className="c-header">
         <div className="c-header__content">
           <div className="c-header__dropdown-container">
-            <a className="c-header__logo" href="/digital/" data-testid="logo">
+            <a className="c-header__logo" href="#" data-testid="logo">
               <img
                 className="c-header__logo-img"
                 src="https://i.ibb.co/3NdPjkX/499a21f061efc2b7.png"
@@ -171,7 +171,7 @@ export default function Layout({ children, posts }: Props) {
           <nav className="c-sidebar">
             <Navigation posts={posts} />
           </nav>
-          <article className="c-mdx" >{children}</article>
+          <div className="c-mdx" >{children}</div>
         </div>
       </main>
       <footer className="c-footer" data-testid="footer">

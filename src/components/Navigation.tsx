@@ -15,13 +15,13 @@ export default function Navigation({posts}:Props ) {
     if (posts === undefined) {
       return;
     }
-    console.log(posts);
+    // console.log(posts);
     return posts.map((u, i) => {
       return (
         <li className="c-sidebar__item" key={i} style={{ marginLeft: "7px" }}>
           <div className="c-sidebar__item-label-wrap" data-testid="label-wrap">
             <Link href={`/posts/${u.slug}`}>
-              <a target="_self" className="c-sidebar__item-label">
+              <a target="_self" className="c-sidebar__item-label" style={{color:"#777777",fontSize:"14px"}}>
                 {u.slug}
               </a>
             </Link>
