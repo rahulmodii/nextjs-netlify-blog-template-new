@@ -245,3 +245,16 @@
     min-height: 100vh;
     width: 100%;
 }
+p{
+  font-size: 14px;
+    line-height: 20px;
+    font-weight: 300;
+    color: black;
+    letter-spacing: 0.15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h1,h2,h3,h4,h5,h6{
+  color: #092f52;
+}
