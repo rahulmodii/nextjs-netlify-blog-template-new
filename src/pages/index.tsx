@@ -21,10 +21,10 @@ export default function Index({ posts }: Props) {
       <div className="container" style={{padding: "80px 36px 80px 80px"}}>
         <div>
           <h1>
-            Hi, We're Next.js & Netlify<span className="fancy">.</span>
+            Mark WYSIWYG editor spike<span className="fancy">.</span>
           </h1>
-          <span className="handle">@nextjs-netlify-blog</span>
-          <h2>A blog template with Next.js and Netlify.</h2>
+          {/* <span className="handle">@nextjs-netlify-blog</span> */}
+          <h2>Lorem ipsum dolor sit amet.</h2>
           <SocialList />
         </div>
       </div>
