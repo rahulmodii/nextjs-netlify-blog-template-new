@@ -4,6 +4,8 @@ import { AppProps } from "next/app";
 // They are used by the Netlify CMS preview feature.
 import "../../public/styles/global.css";
 import '../../public/styles/app.css'
+
+
 export default function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }

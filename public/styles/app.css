@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "centrale-sans";
+  src: url("../CentraleSans-Light.woff") format('woff');
+}
+
+body {
+  font-family: centrale-sans;
+}
 .c-header {
     display: flex;
     justify-content: center;
